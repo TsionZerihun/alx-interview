@@ -1,17 +1,17 @@
 #!/usr/bin/python3
 """
-task 0: that returns a list of lists of integers
+Pascal's triangle
 """
 
 
 def pascal_triangle(n):
     """
-    Return list of lists of ints
+    Returns a list of lists of integers representing the Pascal's triangle of n
     """
     if n <= 0:
         return []
 
-    pasTriangle = [[1]]
+    triangle = [[1]]
 
     for row in range(2, n + 1):
         rows = []
@@ -20,9 +20,9 @@ def pascal_triangle(n):
             if idx == 0 or idx == row - 1:
                 rows.append(1)
                 continue
-            value = pasTriangle[row - 2][idx] + pasTriangle[row - 2][idx - 1]
+            value = triangle[row - 2][idx] + triangle[row - 2][idx - 1]
             rows.append(value)
 
-        pasTriangle.append(rows)
+        triangle.append(rows)
 
-    return pasTriangle
+    return triangle
