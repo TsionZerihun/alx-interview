@@ -1,20 +1,21 @@
 #!/usr/bin/python3
 """
-Method to determine if all boxes can be opened
-Using prototype: def canUnlockAll(boxes)
+task0:canUnlockAll
 """
 
 
 def canUnlockAll(boxes):
     """
-    Check if boxes can be unlocked
+    Returns boolean
     """
-    for key in range(1, len(boxes) - 1):
-        ctr = False
-        for idx in range(len(boxes)):
-            ctr = (key in boxes[idx] and key != idx)
-            if ctr:
-                break
-        if ctr is False:
-            return ctr
-    return True
+    keys = set()
+
+    for box_id, box in enumerate(boxes):
+        if len(box) == 0 or box_id == 0:
+            keys.add(box_id)
+        for key in box:
+            if key < len(boxes) and key != box_id:
+                keys.add(key)
+        if len(keys) == len(boxes):
+            return True
+    return False
