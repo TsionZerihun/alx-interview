@@ -1,20 +1,24 @@
 #!/usr/bin/python3
-""" Task 0: minimal operation"""
+""" Task0"""
 
 
-def minOperations(n: int) -> int:
-    """ Returns op """
-    next = 'H'
-    body = 'H'
-    op = 0
-    while (len(body) < n):
-        if n % len(body) == 0:
-            op += 2
-            next = body
-            body += body
-        else:
-            op += 1
-            body += next
-    if len(body) != n:
+def minOperations(n):
+    """
+    Returns ops
+    """
+    # all outputs should be at least 2 char: (min, Copy All => Paste)
+    if (n < 2):
         return 0
-    return op
+    ops, root = 0, 2
+    while root <= n:
+        # if n evenly divides by root
+        if n % root == 0:
+            # total even-divisions by root = total operations
+            ops += root
+            # set n to the remainder
+            n = n / root
+            # reduce root to find remaining smaller vals that evenly-divide n
+            root -= 1
+        # increment root until it evenly-divides n
+        root += 1
+    return ops
