@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-y
+task0
 """
 
 
 def minOperations(n):
-    """x"""
+    """minoperations"""
     t = 0
     m = 2
     while n > 1:
