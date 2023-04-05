@@ -5,7 +5,7 @@ y
 
 
 def minOperations(n):
-    ""x"""
+    """x"""
     t = 0
     m = 2
     while n > 1:
